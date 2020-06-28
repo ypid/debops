@@ -65,3 +65,6 @@
 
 - name: Configure IMAP Proxy service
   import_playbook: '../service/imapproxy.yml'
+
+- name: Configure Node-RED service
+  import_playbook: '../service/nodered.yml'
