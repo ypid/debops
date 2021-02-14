@@ -138,6 +138,9 @@
 - name: Configure reprepro APT repository
   import_playbook: '../service/reprepro.yml'
 
+- name: Configure Jellyfin service
+  import_playbook: '../service/jellyfin.yml'
+
 - name: Configure SMS Gateway service
   import_playbook: '../service/smstools.yml'
 

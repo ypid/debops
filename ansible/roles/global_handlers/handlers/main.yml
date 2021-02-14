@@ -98,6 +98,9 @@
 - name: Import iscsi handlers
   ansible.builtin.import_tasks: 'iscsi.yml'
 
+- name: Import Jellyfin handlers
+  ansible.builtin.import_tasks: 'jellyfin.yml'
+
 - name: Import keepalived handlers
   ansible.builtin.import_tasks: 'keepalived.yml'
 
