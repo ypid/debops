@@ -1089,6 +1089,12 @@ nginx__apt_preferences__dependent_list:
     state: '{{ ((nginx__deploy_state in [ "present" ]) and (nginx_flavor in [ "passenger" ])) | ternary("present", "absent") }}'
 
                                                                    # ]]]
+# .. envvar:: nginx_ferm_dependent_rules [[[
+#
+# Configuration of the :command:`iptables` firewall using :program:`ferm`.
+nginx_ferm_dependent_rules: '{{ nginx__ferm__dependent_rules }}'
+
+                                                                   # ]]]
 # .. envvar:: nginx_php5_status [[[
 #
 # Name of the php5 fpm status page location
@@ -1236,6 +1242,16 @@ nginx__ferm__dependent_rules:
     name: 'http_https'
     multiport: True
     delete: '{{ nginx__deploy_state != "present" }}'
+
+  - type: 'accept'
+    dport: [ '9443' ]
+    saddr: '{{ nginx_real_ip_from|d([]) }}'
+    accept_any: False
+    weight: '40'
+    by_role: 'nginx'
+    name: 'https_proxy_protocol'
+    multiport: True
+    delete: '{{ "present" if (nginx_real_ip_from|d([])) else "absent" }}'
                                                                    # ]]]
                                                                    # ]]]
 # Configuration for other Ansible roles [[[
