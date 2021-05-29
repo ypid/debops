@@ -200,6 +200,9 @@ Common webserver options
   List of ports, IP addresses or sockets this server configuration should
   listen on for HTTPS connections.
 
+``listen_ssl_options``
+  Additional Nginx options for the `listen` directive of the HTTPS server.
+
 ``include_files_begin``
   Optional, list of strings.
   List of files that will be included at the beginning of the server

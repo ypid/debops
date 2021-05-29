@@ -356,6 +356,12 @@ nginx_listen_port: [ '[::]:80' ]
 nginx_listen_ssl_port: [ '[::]:443' ]
 
                                                                    # ]]]
+# .. envvar:: nginx_listen_ssl_options [[[
+#
+# Additional Nginx options for the `listen` directive of the HTTPS server.
+nginx_listen_ssl_options: []
+
+                                                                   # ]]]
 # .. envvar:: nginx_listen_socket [[[
 #
 # Default listen socket for HTTP connections.
