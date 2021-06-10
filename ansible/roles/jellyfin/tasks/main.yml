@@ -30,11 +30,18 @@
 #   notify: [ 'Restart gunicorn for jellyfin' ]
 #   tags: [ 'role::jellyfin:config' ]
 
-- name: Set Base URL in Jellyfin system settings
-  xml:
-    path: '/etc/jellyfin/system.xml'
-    xpath: '/ServerConfiguration/BaseUrl'
-    value: '{{ jellyfin__http_psk_subpath
-               if (jellyfin__http_psk_subpath_enabled|bool)
-               else "" }}'
-  notify: ['Restart Jellyfin']
+# TODO: This can only be set after the initial setup.
+# - name: Ensure IPv6 listening is enabled
+#   xml:
+#     path: '/etc/jellyfin/network.xml'
+#     xpath: '/NetworkConfiguration/EnableIPV6'
+#     value: 'true'
+#   notify: ['Restart Jellyfin']
+# - name: Set Base URL in Jellyfin system settings
+#   xml:
+#     path: '/etc/jellyfin/system.xml'
+#     xpath: '/ServerConfiguration/BaseUrl'
+#     value: '{{ jellyfin__http_psk_subpath
+#                if (jellyfin__http_psk_subpath_enabled|bool)
+#                else "" }}'
+#   notify: ['Restart Jellyfin']
