@@ -41,6 +41,9 @@ jellyfin__fqdn: 'media.{{ jellyfin__domain }}'
 # List of APT packages to install Jellyfin.
 jellyfin__base_packages:
   - 'jellyfin'
+
+  # Required for the `xml` Ansible module that this role users.
+  - 'python3-lxml'
                                                                    # ]]]
                                                                    #
 # .. envvar:: jellyfin__packages [[[
