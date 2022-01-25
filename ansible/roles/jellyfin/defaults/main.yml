@@ -217,7 +217,7 @@ jellyfin__nginx__dependent_servers:
 
       - pattern: '/{{ jellyfin__http_psk_subpath }}'
         options: |-
-          return 302 https://$host/{{ jellyfin__http_psk_subpath }}/;
+          return 302 /{{ jellyfin__http_psk_subpath }}/;
         enabled: '{{ jellyfin__http_psk_subpath_enabled|bool }}'
 
       - pattern: '{{ ("/" + jellyfin__http_psk_subpath + "/")
