@@ -18,6 +18,12 @@
   register: jellyfin__register_packages
   until: jellyfin__register_packages is succeeded
 
+- name: Add Jellyfin system user to additional groups
+  user:
+    name: '{{ jellyfin__user }}'
+    append: True
+    groups: '{{ jellyfin__groups }}'
+
 # Configure Jellyfin server [[[1
 # - name: Generate Jellyfin configuration
 #   template:

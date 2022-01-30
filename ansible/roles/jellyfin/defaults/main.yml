@@ -67,6 +67,16 @@ jellyfin__user: 'jellyfin'
 jellyfin__group: 'jellyfin'
 
                                                                    # ]]]
+# .. envvar:: jellyfin__groups [[[
+#
+# Additionally UNIX group to add the Jellyfin user to.
+# Defaults to groups to ensure that Jellyfin can make use of hardware
+# transcoding if such support is available.
+jellyfin__groups:
+  - 'render'
+  - 'video'
+
+                                                                   # ]]]
                                                                    # ]]]
 # Directory paths [[[
 # -------------------
