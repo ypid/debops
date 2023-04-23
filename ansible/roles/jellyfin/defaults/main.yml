@@ -218,6 +218,11 @@ jellyfin__nginx__dependent_servers:
     filename: 'debops.jellyfin'
     # favicon: False
 
+    # Hardening header `X-Frame-Options "SAMEORIGIN"` breaks webOS "smart" TVs.
+    # Ref: https://jellyfin.org/docs/general/networking/nginx
+    # Ref: https://github.com/jellyfin/jellyfin-webos/issues/52
+    frame_options: '{{ omit }}'
+
     location_list:
 
       - pattern: '/'
