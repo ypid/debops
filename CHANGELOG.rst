@@ -87,6 +87,12 @@ General
 - The DebOps CI pipeline in GitHub Actions is improved and will be executed on
   pull requests and pushes to test changes before merging them.
 
+:ref:`debops.cryptsetup` role
+'''''''''''''''''''''''''''''
+
+- Make PBKDF configurable and already set Argon2id which is the new default of
+  cryptsetup 2.4.0. See :envvar:`cryptsetup__pbkdf` for details.
+
 :ref:`debops.gitlab_runner` role
 ''''''''''''''''''''''''''''''''
 
